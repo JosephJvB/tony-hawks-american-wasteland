@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  yeet
+
+Transform:
+- AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Environment:
+      Variables:
+        DEBUG: true
+        # AccessKey: '{{resolve:ssm:AccessKey:1}}'
+        # SecretKey: '{{resolve:ssm:SecretKey:1}}'
+
+Resources:
+  Throttler:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda/
+      Handler: dist/function.handler
+      Runtime: nodejs12.x
+      Events:
+        Throttler:
+          # change to sqs event
+          # Type: Api
+          # Properties:
+          #   Path: /save
+          #   Method: post
+      Role: arn:aws:iam::355151872526:role/joeslambda
+
+Outputs:
+  Throttler:
+    Description: dylan brady invented music 2.0
+    Value: !GetAtt Throttler.Arn
