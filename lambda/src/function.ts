@@ -17,7 +17,7 @@ export const handler = async (event: SQSEvent) => {
     )
     await axios({
         method: 'post',
-        url: 'https://discordapp.com/api/webhooks/582762988365283389/v9WzjFiTe5Z57TOn54VoSeDjhD85FA8iqVv2iqRpUFhPL5jyZdk55_hZUTCSPaJjZ4us',
+        url: process.env.WebhookUrl,
         data: {
             content: 'Batch:```'
             + JSON.stringify(event.Records.map(r => JSON.parse(r.body).id))

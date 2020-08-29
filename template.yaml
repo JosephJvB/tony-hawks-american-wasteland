@@ -10,6 +10,7 @@ Globals:
     Environment:
       Variables:
         DEBUG: true
+        WebhookUrl: '{{resolve:ssm:WebhookUrl:1}}'
         # AccessKey: '{{resolve:ssm:AccessKey:1}}'
         # SecretKey: '{{resolve:ssm:SecretKey:1}}'
 
