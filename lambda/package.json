@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
-    "build": "tsc && sam build -t ../template.yaml -b ../.sam/"
+    "build": "tsc && sam build -t ../template.yaml -b ../.sam/",
+    "deploy": "sam deploy -t ../.sam/template.yaml --region ap-southeast-2 --stack-name throttle --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-aatalpn2t0fj --s3-prefix throttle --capabilities CAPABILITY_IAM --no-fail-on-empty-changeset --confirm-changeset"
   },
   "keywords": [],
   "author": "",

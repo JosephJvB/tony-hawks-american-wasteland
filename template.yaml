@@ -20,12 +20,13 @@ Resources:
       CodeUri: lambda/
       Handler: dist/function.handler
       Runtime: nodejs12.x
+      ReservedConcurrentExecutions: 1
       Events:
         Throttler:
           Type: SQS
           Properties:
-            Queue: arn:aws:sqs:ap-southeast-2:355151872526:throttle.fifo
-            BatchSize: 10
+            Queue: arn:aws:sqs:ap-southeast-2:355151872526:throttle-reg
+            BatchSize: 1
       Role: arn:aws:iam::355151872526:role/joeslambda
 
 Outputs:
