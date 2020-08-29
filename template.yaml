@@ -22,11 +22,10 @@ Resources:
       Runtime: nodejs12.x
       Events:
         Throttler:
-          # change to sqs event
-          # Type: Api
-          # Properties:
-          #   Path: /save
-          #   Method: post
+          Type: SQS
+          Properties:
+            Queue: arn:aws:sqs:ap-southeast-2:355151872526:throttle.fifo
+            BatchSize: 10
       Role: arn:aws:iam::355151872526:role/joeslambda
 
 Outputs:
